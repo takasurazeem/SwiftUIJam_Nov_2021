@@ -19,3 +19,8 @@ Note - requires iOS 15
 
 ### This project was created as part of SwiftUIJam November 2021
 Any continued work will be located on a repository forked from this one. This was an attempt to make a working calculator for iPad using SwiftUI. A realtime calculation effect adds some uniqeness.
+
+### Contributors
+<a href="https://github.com/takasurazeem/SwiftUIJam_Nov_2021/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=takasurazeem/SwiftUIJam_Nov_2021" />
+</a>
