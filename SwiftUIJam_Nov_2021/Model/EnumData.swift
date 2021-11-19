@@ -28,4 +28,5 @@ enum Symbols: String {
     case allClear = "AC"
     case backspace = "⬅"
     case equals = "="
+    case parenthesis = "()"
 }

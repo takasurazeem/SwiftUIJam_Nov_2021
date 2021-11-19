@@ -58,6 +58,8 @@ class CalculatorBrains: ObservableObject {
             }
         case .equals:
             focusingAnswer = true
+        case .parenthesis:
+            parenthesisPressed()
         }
         
         if input != .equals {
@@ -69,13 +71,36 @@ class CalculatorBrains: ObservableObject {
     
     private func writeToExpression(str: String) {
         var expressionArray = expression.map{$0}
-        let strArray = str.map{$0}
+        let strArray = Array(str)
         //To make sure it doesn't insert out of bounds
         cursorIndex = min(expression.count, cursorIndex)
         expressionArray.insert(contentsOf: strArray, at: cursorIndex)
         expression = String(expressionArray)
-        //Probably redundant
-        cursorIndex = min(expression.count, cursorIndex + 1)
+        setCursorIndex(cursorIndex + strArray.count)
+    }
+    
+    private func parenthesisPressed() {
+        var expressionArray = Array(expression)
+        var newCursorIndex = cursorIndex
+        //Algorithm to figure out wether you need left or right parenthesis
+        let (left, right) = expressionArray.split(beforeIndex: cursorIndex)
+        let leftLevel = left.parenthesisLevel()
+        let rightLevel = -right.parenthesisLevel()
+        if leftLevel > rightLevel {
+            writeToExpression(str: ")")
+        } else if cursorIndex == expressionArray.count {
+            expressionArray.append(contentsOf: "()".map{$0})
+            newCursorIndex += 1
+            expression = String(expressionArray)
+            setCursorIndex(newCursorIndex)
+        } else {
+            writeToExpression(str: "(")
+        }
+        
+    }
+    
+    private func setCursorIndex(_ newIndex: Int) {
+        cursorIndex = min(expression.count, newIndex)
     }
     
     private func updateAnswer() {
