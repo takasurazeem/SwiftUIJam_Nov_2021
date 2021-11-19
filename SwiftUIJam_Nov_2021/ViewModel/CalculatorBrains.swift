@@ -58,6 +58,8 @@ class CalculatorBrains: ObservableObject {
             }
         case .equals:
             focusingAnswer = true
+        case .parenthesis:
+            parenthesisPressed()
         }
         
         if input != .equals {
@@ -74,8 +76,22 @@ class CalculatorBrains: ObservableObject {
         cursorIndex = min(expression.count, cursorIndex)
         expressionArray.insert(contentsOf: strArray, at: cursorIndex)
         expression = String(expressionArray)
-        //Probably redundant
-        cursorIndex = min(expression.count, cursorIndex + 1)
+        setCursorIndex(cursorIndex + strArray.count)
+    }
+    
+    private func parenthesisPressed() {
+        var expressionArray = expression.map{$0}
+        var newCursorIndex = cursorIndex
+        if cursorIndex == expressionArray.count {
+            expressionArray.append(contentsOf: "()".map{$0})
+            newCursorIndex += 1
+        }
+        expression = String(expressionArray)
+        setCursorIndex(newCursorIndex)
+    }
+    
+    private func setCursorIndex(_ newIndex: Int) {
+        cursorIndex = min(expression.count, newIndex)
     }
     
     private func updateAnswer() {
