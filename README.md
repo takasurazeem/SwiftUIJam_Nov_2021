@@ -26,9 +26,9 @@ Any continued work will be located on a repository forked from this one. This wa
 
 1. Create a fork of repo.
 2. Make sure your repo is in sync with this repo.
-2a. Create an issue on GitHub issues if you are not member of the Jira board.
-3. Create a branch off from develop starting with the key **TAB** followed by hyphen **(-)**, and then a unique number. If you are member of Jira board you will know what number, else leave the number part and just put the feature/bug fix identifier e.g., for this specific improvement in readme file. `TAB-006-Guideline-For-Contribution` or `TAB-Guideline-For-Contribution`.
-4. Commit your chages with --signoff flag and in the format as mentioned below:
+3. Create an issue on GitHub issues if you are not member of the Jira board.
+4. Create a branch off from develop starting with the key **TAB** followed by hyphen **(-)**, and then a unique number. If you are member of Jira board you will know what number, else leave the number part and just put the feature/bug fix identifier e.g., for this specific improvement in readme file. `TAB-006-Guideline-For-Contribution` or `TAB-Guideline-For-Contribution`.
+5. Commit your chages with --signoff flag and in the format as mentioned below:
 
 ```
     TAB-006-Guideline-For-Contribution
@@ -39,9 +39,9 @@ Any continued work will be located on a repository forked from this one. This wa
 ```
 Note that the last signed off by part comes automatically if you use the `--sign-off` flag.
 
-5. Push your branch.
-6. Create a PR (pull request) for your branch.
-7. Assign a reviewer, if there are no conflicts and it really does the fix, it will be approved, merged and closed by a collaborator.
+6. Push your branch.
+7. Create a PR (pull request) for your branch.
+8. Assign a reviewer, if there are no conflicts and it really does the fix, it will be approved, merged and closed by a collaborator.
 
 ### Contributors
 
